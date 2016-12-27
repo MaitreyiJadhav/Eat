@@ -1,0 +1,59 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.eat.maitreyijadhav.eat.ShoppingListPage">
+
+    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter item"
+        android:textSize="24dp"
+        android:maxLength="15"
+        android:maxLines="1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="Delete all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/deleteButton"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/addTaskBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add item"
+            android:layout_below="@+id/editText"
+            android:layout_alignParentLeft="true"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Shoppin list"
+        android:id="@+id/header"
+        android:layout_below="@+id/addTaskBtn"
+        android:background="#5e5e5e"
+        android:textColor="#FFFFFF"
+        android:textSize="14dp"
+        android:gravity="center_vertical|center_horizontal" />
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/list"
+        android:layout_below="@+id/header"
+        android:layout_centerHorizontal="true" />
+
+</LinearLayout>

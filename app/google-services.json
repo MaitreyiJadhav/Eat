@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "234075095823",
+    "firebase_url": "https://eatall-16860.firebaseio.com",
+    "project_id": "eatall-16860",
+    "storage_bucket": "eatall-16860.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234075095823:android:b942686075aebb69",
+        "android_client_info": {
+          "package_name": "com.eat.maitreyijadhav.eat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "234075095823-oi182h6082kk39c9350hocdlkuhhrtq2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eat.maitreyijadhav.eat",
+            "certificate_hash": "2E2F5B04CADA7EFBF103431A195E4E138F6D5169"
+          }
+        },
+        {
+          "client_id": "234075095823-752ha8hk58idnio177panvii767s9a09.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwqMcQ4HihmUXe9XcbdlWNhmhI9F92LKw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "234075095823-752ha8hk58idnio177panvii767s9a09.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

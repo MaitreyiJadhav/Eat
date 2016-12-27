@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Foodies</string>
+    <string name="e_mail">E-Mail</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm-Password</string>
+    <string name="sign_up">Sign up</string>
+    <string name="already_member_signin">Already Member? SignIn</string>
+    <string name="skip">Skip..</string>
+    <string name="create_account">Create account!</string>
+    <string name="google">Google</string>
+    <string name="login">Login</string>
+    <string-array name="navigation_drawer_items_array">
+        <item>Home</item>
+        <item>Starters</item>
+        <item>Main Course</item>
+        <item>Dessert</item>
+        <item>Groceries List</item>
+        <item>Settings</item>
+        <item>Sign Out</item>
+    </string-array>
+    <string-array name="navigation_drawer_items_array_normal">
+        <item>Home</item>
+        <item>Starters</item>
+        <item>Main Course</item>
+        <item>Dessert</item>
+        <item>Groceries List</item>
+        <item>Settings</item>
+        <item>Sign In</item>
+    </string-array>
+    <string-array name="navigation_drawer_items_array_admin">
+        <item>Home</item>
+        <item>Starters</item>
+        <item>Main Course</item>
+        <item>Dessert</item>
+        <item>Groceries List</item>
+        <item>Settings</item>
+        <item>Sign Out</item>
+    </string-array>
+
+
+    <string-array name="differentcousins">
+        <item>Italian</item>
+        <item>Indian</item>
+        <item>Chinese</item>
+        <item>Japanese</item>
+        <item>Mexican</item>
+        <item>Continental</item>
+    </string-array>
+    <string name="open_drawer">Open drawer</string>
+    <string name="banner_ad_unit_id">ca-app-pub-9168908591185135/9453389601</string>
+    <string name="close_drawer">Close drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

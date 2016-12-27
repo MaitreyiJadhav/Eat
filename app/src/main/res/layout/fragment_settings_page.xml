@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.eat.maitreyijadhav.eat.SettingsPage">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@mipmap/foodieslogo"
+            android:id="@+id/imageView2" />
+
+        <TextView
+            android:text="EULA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:textSize="25sp"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_margin="5dp" />
+    </LinearLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="License Grant.  You are hereby granted a personal, non-transferable and non-sublicenseable, nonexclusive, world-wide, royalty free copyright license to reproduce, prepare derivative works of, publicly display, publicly perform, distribute and sublicense the program examples and sample applications and any such derivative works, in source code and object code form.  Except for the copyright license above, you are granted no other rights or licenses, by implication, or estoppel, or otherwise, under any patents or other intellectual property rights."
+        android:textSize="18sp"
+        android:gravity="center_vertical|center_horizontal" />
+</ScrollView>
+</LinearLayout>
