@@ -70,6 +70,7 @@ public class ListViewForRecipes extends AppCompatActivity {
         else if(foodType.equals("Main Course")){
             activityToLaunch = 3;
         }
+
         list = (ListView) findViewById(R.id.list);
         Firebase.setAndroidContext(this);
         bitmapArray = new ArrayList<Bitmap>();
@@ -77,7 +78,11 @@ public class ListViewForRecipes extends AppCompatActivity {
         urlOfRecipe = new ArrayList<String>();
         itemName = new ArrayList<String>();
         origin  = new ArrayList<String>();
+
+        //gets the reference of the database in the firebase recipes
         fireBaseReference =  new Firebase("https://foodies-2f4d9.firebaseio.com/Recipes");
+
+        //seperate thread to perform loading of data from database into the array list
         new AsyncTask<Void, Integer, Void>() {
             @Override
             protected void onPreExecute() {
@@ -85,6 +90,8 @@ public class ListViewForRecipes extends AppCompatActivity {
                 progressDialog.setMessage("Please wait...");
                 progressDialog.show();
             }
+
+            //on progress update sets data to the different views that has been fetched from database
 
             @Override
             protected void onProgressUpdate(Integer... values) {
@@ -94,6 +101,7 @@ public class ListViewForRecipes extends AppCompatActivity {
                 list.setAdapter(adapter);
 
             }
+            //data recieved from firebase is parsed into recipe obj and individual elements from the recipe obj are added to desired ArrayList
 
             @Override
             protected Void doInBackground(Void... params) {
@@ -102,10 +110,14 @@ public class ListViewForRecipes extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
                         int i  =0;
+                        //fetches each child obj from firebase database and parse it into recipe obj
+
                         for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                             Recipe recipe = postSnapshot.getValue(Recipe.class);
                             String foodTypeholder = recipe.getTypeOfRecipe().toString();
                             String originOfRecipeHolder = recipe.getOriginOfRecipe().toString();
+
+                            //checks recipe type- starters, main, desserts and displays it accordingly
                             if(foodTypeholder.equals(foodType) && originOfRecipeHolder.equals(foodToLaunch)){
                                 itemName.add(recipe.getNameOfRecipe());
                                 origin.add(recipe.getOriginOfRecipe());
@@ -115,13 +127,16 @@ public class ListViewForRecipes extends AppCompatActivity {
                                 try{
                                     publishProgress(0);
                                     URL url = new URL(IMAGE_URL);
+                                    //connect http and url and fetch data
                                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                                     connection.setDoInput(true);
                                     connection.connect();
                                     InputStream input = connection.getInputStream();
+                                    //converts image to bitmap
                                     Bitmap bitmap = BitmapFactory.decodeStream(input);
                                     bitmapArray.add(bitmap);
                                 }
+                                //if image is not loaded then display default
                                 catch(Exception E){
                                     Bitmap bitmap =BitmapFactory.decodeResource(getResources(),R.mipmap.foodieslogo);
                                     bitmapArray.add(bitmap);
@@ -132,6 +147,8 @@ public class ListViewForRecipes extends AppCompatActivity {
                         }
                         progressDialog.dismiss();
                     }
+
+                    //if firebase connection fails throws exception
                     @Override
                     public void onCancelled(FirebaseError firebaseError) {
                         System.out.println("The read failed: " + firebaseError.getMessage());
@@ -146,6 +163,7 @@ public class ListViewForRecipes extends AppCompatActivity {
         adapter.notifyDataSetChanged();
         list.setAdapter(adapter);
 
+        //when user clicks on the item in the list, the selected item data is saved into array and parsed from one intent to other
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -156,6 +174,7 @@ public class ListViewForRecipes extends AppCompatActivity {
                 arrayOfRecipeObjects[2] = urlOfRecipe.get(position);
                 arrayOfRecipeObjects[3] = origin.get(position);
                 arrayOfRecipeObjects[4] = foodType;}
+
                 Intent openDisplayRecipe = new Intent(ListViewForRecipes.this, DisplayRecipe.class);
                 openDisplayRecipe.putExtra("RecipeArray", arrayOfRecipeObjects);
                 startActivity(openDisplayRecipe);
@@ -165,17 +184,18 @@ public class ListViewForRecipes extends AppCompatActivity {
 
     }
 
+    //finish activity if app closed
     @Override
     protected void onStop() {
         super.onStop();
         finish();
     }
 
+    //checks from navigation icon in action bar it directs user to appropriate fragment
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                // app icon in action bar clicked; go home
                 Intent intent = new Intent(this, MainActivityNavigation.class);
                 intent.putExtra("StartFragmentNUmber",activityToLaunch);
                 startActivity(intent);

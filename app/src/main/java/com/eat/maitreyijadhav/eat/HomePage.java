@@ -105,7 +105,9 @@ public class HomePage extends Fragment {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
                         int i = 0;
+                        //get number of children from firebase databse
                         randomNumber = snapshot.getChildrenCount();
+                        //fetches each child obj from firebase database and parse it into recipe obj
                         for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                             Recipe recipe = postSnapshot.getValue(Recipe.class);
                             typeOfRecipe.add(recipe.getTypeOfRecipe());
@@ -115,7 +117,7 @@ public class HomePage extends Fragment {
                             origin.add(recipe.getOriginOfRecipe());
 
                         }
-
+                        //creates random number between 0 to number of children
                         numberToDisplay = random.nextInt(((int)randomNumber ));
                        publishProgress(0);
                     }

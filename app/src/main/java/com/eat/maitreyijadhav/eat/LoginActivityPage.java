@@ -33,7 +33,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+//Authentication of user activity
 public class LoginActivityPage extends AppCompatActivity implements View.OnClickListener{
+
+    //Declare view variables and GoogleApi
     private ImageView backgroundOne;
     private ImageView backgroundTwo;
     private TextView onCreateAccount, textSkip;
@@ -47,12 +50,16 @@ public class LoginActivityPage extends AppCompatActivity implements View.OnClick
     private GoogleApiClient mGoogleApiClient;
     private FirebaseAuth.AuthStateListener mAuthListner;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
+
+        //Hide action bar
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+        //initiate google sign in options
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -73,6 +80,7 @@ public class LoginActivityPage extends AppCompatActivity implements View.OnClick
 
     }
 
+    //on click listeners on multiple buttons
     @Override
     public void onClick(View v) {
         switch(v.getId()){
@@ -96,12 +104,12 @@ public class LoginActivityPage extends AppCompatActivity implements View.OnClick
         }
     }
 
-
+    //authenticate with google, when logged into google, following method gets fired
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
-
+    //movable background image- code to create animation
     public void startAnimation(){
         ValueAnimator animator = ValueAnimator.ofFloat(0.0f, 1.0f);
         animator.setRepeatCount(ValueAnimator.INFINITE);
@@ -120,12 +128,14 @@ public class LoginActivityPage extends AppCompatActivity implements View.OnClick
         animator.start();
     }
 
+    //close screen when user minimise
     @Override
     protected void onStop() {
         super.onStop();
         finish();
     }
 
+    //checks credentials when user tries to login- captures various login scenarios
     private void logInUserAfterAuthentication(){
         passwordHolder = passwordTextField.getText().toString();
         emailHolder = emailTextField.getText().toString();
@@ -157,6 +167,7 @@ public class LoginActivityPage extends AppCompatActivity implements View.OnClick
 
 
     }
+    //Firebase authentication
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -199,6 +210,7 @@ public class LoginActivityPage extends AppCompatActivity implements View.OnClick
     }
 
 
+    //Initiates views with ID
     public void initiateViews(){
         googleSignInButton = (SignInButton)findViewById(R.id.buttonGoogleLogin);
         googleSignInButton.setOnClickListener(this);
