@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+//Fragment to hold main course recipes
 public class MainCoursePage extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,12 +33,15 @@ public class MainCoursePage extends Fragment {
         // Inflate the layout for this fragment
         View view  = inflater.inflate(R.layout.fragment_starters_page, container, false);
         list = (ListView) view.findViewById(R.id.list);
+        //creating Adapter for a list of origin names
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 inflater.getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.differentcousins));
         //CustomListAdapter adapter = new CustomListAdapter(getActivity(), itemName, origin, bitmapArray);
         list.setAdapter(adapter);
         cousingTypes = getResources().getStringArray(R.array.differentcousins);
+        //set on item click listener on the list
+
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override

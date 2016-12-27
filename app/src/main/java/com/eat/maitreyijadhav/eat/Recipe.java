@@ -3,8 +3,10 @@ package com.eat.maitreyijadhav.eat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * Created by Nero on 26/11/2016.
+ * Created by Maitreyi on 12/12/2016.
  */
+
+//Recipe is a helper class that holds parsed objects from database
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class Recipe {
 
