@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-
+//displays recipe on the activity
 public class DisplayRecipe extends AppCompatActivity {
 
     ImageView imageToDisplay;
@@ -20,17 +20,18 @@ public class DisplayRecipe extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //set layout to the display
         setContentView(R.layout.activity_display_recipe);
+
+        //provides navigation icon on the action bar
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.getSupportActionBar().setHomeButtonEnabled(true);
+        //recieves intent from main activity navigation for recipe array
         Intent intent = getIntent();
         objectArray = intent.getStringArrayExtra("RecipeArray");
-        /*arrayOfRecipeObjects[0] = itemName.get(position);
-        arrayOfRecipeObjects[1] = discription.get(position);
-        arrayOfRecipeObjects[2] = urlOfRecipe.get(position);
-        arrayOfRecipeObjects[3] = origin.get(position);
-        arrayOfRecipeObjects[4] = foodType;*/
         foodType = objectArray[4];
+
+        //check what type of food recipe to be displayed- starters, desserts, main course
         if(foodType.equals("Starter")){
             activityToLaunch = 1;
         }else if(foodType.equals("Dessert")){
@@ -40,12 +41,15 @@ public class DisplayRecipe extends AppCompatActivity {
             activityToLaunch = 3;
         }
 
+        //initiates views with its ID
         imageToDisplay = (ImageView) findViewById(R.id.displayImage);
         originType = (TextView)findViewById(R.id.originType);
         discription = (TextView) findViewById(R.id.displayRecipe);
         String data = objectArray[0] + "\n"+"Origin: "+objectArray[3] + "\n"+"Type: "+objectArray[4];
         originType.setText(data);
         discription.setText(objectArray[1]);
+
+        //Assigns image view with image url and loads it with the help of picasso library
         try {
             Picasso.with(this).load(objectArray[2]).into(imageToDisplay);
         }catch (Exception e){
@@ -53,6 +57,8 @@ public class DisplayRecipe extends AppCompatActivity {
         }
 
     }
+
+    //when user clicks on navigation icon it will take useer back to appropriate recipe fragment
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

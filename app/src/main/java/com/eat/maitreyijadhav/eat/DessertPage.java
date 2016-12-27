@@ -12,7 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-
+//fragment to hold Desserts Recipes
 public class DessertPage extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,6 @@ public class DessertPage extends Fragment {
     private String mParam2;
     String cousingTypes[];
     private ListView list;
-    private OnFragmentInteractionListener mListener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,11 +31,12 @@ public class DessertPage extends Fragment {
         View view  = inflater.inflate(R.layout.fragment_starters_page, container, false);
         list = (ListView) view.findViewById(R.id.list);
 
+        //creating Adapter for a list of origin names
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 inflater.getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.differentcousins));
-        //CustomListAdapter adapter = new CustomListAdapter(getActivity(), itemName, origin, bitmapArray);
         list.setAdapter(adapter);
         cousingTypes = getResources().getStringArray(R.array.differentcousins);
+        //set on item click listener on the list
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -50,11 +50,6 @@ public class DessertPage extends Fragment {
             }
         });
         return view;
-    }
-
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
     }
 
     @Override

@@ -26,10 +26,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 
-
+//this is the main landing page of the navigation menu
 public class HomePage extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
+    //initiates variables
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     Random random = new Random();
@@ -47,7 +49,6 @@ public class HomePage extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
 
 
     @Override
@@ -56,6 +57,8 @@ public class HomePage extends Fragment {
         // Inflate the layout for this fragment
         //int randomNum = rand.nextInt((max - min) + 1) + min;
         View view = inflater.inflate(R.layout.fragment_home_page, container, false);
+
+        //Initiates views and variables
         Firebase.setAndroidContext(getActivity());
         typeOfRecipe = new ArrayList<String>();
         discription = new ArrayList<String>();
@@ -66,7 +69,12 @@ public class HomePage extends Fragment {
         nameTodisplay = (TextView) view.findViewById(R.id.nameOfRecipe);
         originRecipe = (TextView) view.findViewById(R.id.typrOrigin);
         description = (TextView) view.findViewById(R.id.discriptionOfREcipe);
+
+        //gets the reference of the database in the firebase recipes
         fireBaseReference = new Firebase("https://foodies-2f4d9.firebaseio.com/Recipes");
+
+
+        //seperate thread to perform loading of data from database into the array list
         new AsyncTask<Void, Integer, Void>() {
             @Override
             protected void onPreExecute() {
@@ -74,6 +82,7 @@ public class HomePage extends Fragment {
 
             }
 
+            //on progress update sets data to the different views that has been fetched from database
             @Override
             protected void onProgressUpdate(Integer... values) {
                 super.onProgressUpdate(values);
@@ -88,6 +97,7 @@ public class HomePage extends Fragment {
 
             }
 
+            //data recieved from firebase is parsed into recipe obj and individual elements from the recipe obj are added to desired ArrayList
             @Override
             protected Void doInBackground(Void... params) {
 
@@ -121,24 +131,12 @@ public class HomePage extends Fragment {
         return view;
     }
 
-
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
-
+    //Destroys the fragment view when user minimises the app
     @Override
     public void onDestroy() {
         super.onDestroy();
         getActivity().finish();
     }
 
-    class MyAsyncTask extends AsyncTask<String, String, String> {
 
-
-        protected String doInBackground(String... params) {
-
-            return null;
-        }
-    }
 }

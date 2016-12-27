@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-
+//CustomListAdapter holds bunch of views to create custom lists for recipes
 public class CustomListAdapter extends ArrayAdapter<String>{
 
     private final Activity context;
@@ -25,7 +25,7 @@ public class CustomListAdapter extends ArrayAdapter<String>{
     private final ArrayList<Bitmap> bitmapArray;
     private final ArrayList<String> origin;
 
-
+    //Constructor for CustomListAdapter
     public CustomListAdapter(Activity context, ArrayList<String> itemname, ArrayList<String> origin, ArrayList<Bitmap> imgid) {
         super(context, R.layout.custom_list_view, itemname);
         // TODO Auto-generated constructor stub
@@ -38,6 +38,7 @@ public class CustomListAdapter extends ArrayAdapter<String>{
 
     }
 
+    //Initiates different views(Recyclable views)
     @Override
     public View getView(int position,View view,ViewGroup parent) {
         LayoutInflater inflater= context.getLayoutInflater();

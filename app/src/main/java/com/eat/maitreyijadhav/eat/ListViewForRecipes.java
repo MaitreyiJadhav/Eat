@@ -24,8 +24,10 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+//create custom activity that holds custom recyclable list  views
 
 public class ListViewForRecipes extends AppCompatActivity {
+    //Declare variable to hold data
     private ArrayList<String> itemName;
     private ArrayList<String> origin;
     ArrayList<Bitmap> bitmapArray;
@@ -41,15 +43,22 @@ public class ListViewForRecipes extends AppCompatActivity {
     int activityToLaunch;
     private ProgressDialog progressDialog;
     Firebase fireBaseReference;
+
+
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Initiate views arrays and set navigation icon to action bar
         progressDialog = new ProgressDialog(this);
         arrayOfRecipeObjects = new String [5];
         setContentView(R.layout.activity_list_view_for_recipes);
         cousingTypes = getResources().getStringArray(R.array.differentcousins);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.getSupportActionBar().setHomeButtonEnabled(true);
+
+        //check what type of food recipe to be displayed- starters, desserts, main course
+
         Intent intent = getIntent();
         foodToLaunch = intent.getStringExtra("CousinName");
         foodType = intent.getStringExtra("typeOfFood");
