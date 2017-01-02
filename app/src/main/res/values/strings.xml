@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Foodies</string>
+    <string name="app_name">Eat</string>
     <string name="e_mail">E-Mail</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm-Password</string>
@@ -38,7 +38,7 @@
     </string-array>
 
 
-    <string-array name="differentcousins">
+    <string-array name="differentcuisines">
         <item>Italian</item>
         <item>Indian</item>
         <item>Chinese</item>

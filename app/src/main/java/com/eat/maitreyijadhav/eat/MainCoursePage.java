@@ -1,6 +1,5 @@
 package com.eat.maitreyijadhav.eat;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -36,10 +35,10 @@ public class MainCoursePage extends Fragment {
         //creating Adapter for a list of origin names
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                inflater.getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.differentcousins));
+                inflater.getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.differentcuisines));
         //CustomListAdapter adapter = new CustomListAdapter(getActivity(), itemName, origin, bitmapArray);
         list.setAdapter(adapter);
-        cousingTypes = getResources().getStringArray(R.array.differentcousins);
+        cousingTypes = getResources().getStringArray(R.array.differentcuisines);
         //set on item click listener on the list
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {

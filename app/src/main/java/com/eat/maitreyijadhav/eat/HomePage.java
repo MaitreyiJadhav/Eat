@@ -49,8 +49,6 @@ public class HomePage extends Fragment {
     private String mParam1;
     private String mParam2;
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

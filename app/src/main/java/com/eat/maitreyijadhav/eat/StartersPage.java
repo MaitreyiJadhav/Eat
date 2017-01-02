@@ -1,11 +1,8 @@
 package com.eat.maitreyijadhav.eat;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.util.Log;
@@ -15,21 +12,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
-import com.facebook.FacebookSdk;
-import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
-import com.google.firebase.database.FirebaseDatabase;
 
-import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
-
-import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class StartersPage extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -64,10 +50,10 @@ public class StartersPage extends Fragment {
         list = (ListView) view.findViewById(R.id.list);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                inflater.getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.differentcousins));
+                inflater.getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.differentcuisines));
         //CustomListAdapter adapter = new CustomListAdapter(getActivity(), itemName, origin, bitmapArray);
         list.setAdapter(adapter);
-        cousingTypes = getResources().getStringArray(R.array.differentcousins);
+        cousingTypes = getResources().getStringArray(R.array.differentcuisines);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override

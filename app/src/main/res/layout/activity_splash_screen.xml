@@ -14,7 +14,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@mipmap/spalshimage"
+        android:background="@mipmap/splashimage"
         android:id="@+id/imageView8"
         android:layout_marginTop="80dp"
         android:layout_marginBottom="80dp" />

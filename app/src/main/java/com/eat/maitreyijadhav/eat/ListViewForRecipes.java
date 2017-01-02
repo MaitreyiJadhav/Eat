@@ -1,6 +1,5 @@
 package com.eat.maitreyijadhav.eat;
 
-import android.app.ActionBar;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -8,12 +7,10 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -53,7 +50,7 @@ public class ListViewForRecipes extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         arrayOfRecipeObjects = new String [5];
         setContentView(R.layout.activity_list_view_for_recipes);
-        cousingTypes = getResources().getStringArray(R.array.differentcousins);
+        cousingTypes = getResources().getStringArray(R.array.differentcuisines);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.getSupportActionBar().setHomeButtonEnabled(true);
 
